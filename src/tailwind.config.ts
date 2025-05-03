@@ -97,12 +97,12 @@ export default {
 						height: '0'
 					}
 				},
-				// Ripple animation for the Shark Tank theme
+				// Ripple animation for the Shark Tank theme - fixed opacity values as strings
 				ripple: { 
-					'0%': {transform:'scale(.8)', opacity:.9}, 
-					'100%': {transform:'scale(1.4)', opacity:0} 
+					'0%': {transform:'scale(.8)', opacity:'0.9'}, 
+					'100%': {transform:'scale(1.4)', opacity:'0'} 
 				},
-				// Bubble rise animation
+				// Bubble rise animation - fixed opacity values as strings
 				'bubble-rise': {
 					'0%': { transform: 'translateY(30px)', opacity: '0', filter: 'blur(4px)' },
 					'100%': { transform: 'translateY(0)', opacity: '1', filter: 'blur(0)' }
