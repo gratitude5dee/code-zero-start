@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Player } from '@lottiefiles/react-lottie-player';
+import Lottie from 'lottie-react';
 import { motion } from 'framer-motion';
 import sharkAnimation from './shark-animation.json'; 
 
@@ -38,20 +38,21 @@ export function OpeningSplash() {
       transition={{ duration: 0.7 }}
     >
       <div className="relative w-64 h-64">
-        <Player
-          autoplay
-          loop
-          src={sharkAnimation}
+        <Lottie
+          animationData={sharkAnimation}
+          loop={true}
+          autoplay={true}
           style={{ width: '100%', height: '100%' }}
         />
       </div>
       <motion.h1 
-        className="mt-8 text-4xl text-tank-aqua font-heading"
+        layoutId="logo"
+        className="mt-8 text-6xl text-tank-aqua font-heading drop-shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.7 }}
       >
-        Welcome to the Pitch Tank
+        PITCH&nbsp;TANK
       </motion.h1>
     </motion.div>
   );

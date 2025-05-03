@@ -65,18 +65,20 @@ export default {
 				},
 				// Shark Tank theme colors
 				tank: {
-					dark: '#061a26',    // deep navy studio walls
-					aqua: '#14b8a6',    // neon tint on water floor
+					abyss: '#0b2233',     // deeper than the on‑air navy
+					dark: '#061a26',      // original dark color
+					navy: '#365c77',      // logo base
+					teal: '#3badca',      // aquarium edge glow
+					aqua: '#6ae0ff',      // accent light
+					steel: '#738288',     // steel gray
 					glass: 'rgba(255,255,255,0.08)' // frosted cards
 				}
 			},
 			fontFamily: {
-				heading: ['"Bebas Neue"', 'sans-serif']
+				heading: ['"Bebas Neue"', 'sans-serif'] // Using the existing Bebas Neue as fallback
 			},
-			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+			backgroundImage: {
+				'shark-gradient': 'radial-gradient(circle at 50% 120%, rgba(106,224,255,0.15) 0%, rgba(11,34,51,1) 70%)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -99,13 +101,20 @@ export default {
 				ripple: { 
 					'0%': {transform:'scale(.8)', opacity:.9}, 
 					'100%': {transform:'scale(1.4)', opacity:0} 
+				},
+				// Bubble rise animation
+				'bubble-rise': {
+					'0%': { transform: 'translateY(30px)', opacity: '0', filter: 'blur(4px)' },
+					'100%': { transform: 'translateY(0)', opacity: '1', filter: 'blur(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				// Ripple animation for the Shark Tank theme
-				ripple: 'ripple 3s infinite'
+				ripple: 'ripple 3s infinite',
+				// Bubble rise animation
+				'bubble-rise': 'bubble-rise 0.8s ease-out forwards'
 			}
 		}
 	},

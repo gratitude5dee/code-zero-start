@@ -13,7 +13,7 @@ const TankCard = React.forwardRef<
     <Card
       ref={ref}
       className={cn(
-        "bg-tank-glass backdrop-blur-lg border border-white/10",
+        "bg-tank-abyss/60 border-tank-teal/40 border shadow-[0_0_35px_rgba(59,173,202,0.4)]",
         className
       )}
       {...props}
