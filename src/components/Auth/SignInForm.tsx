@@ -1,12 +1,14 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { TankCard } from "@/components/ui/TankCard";
 
 export function SignInForm() {
   const [email, setEmail] = useState("");
@@ -48,9 +50,9 @@ export function SignInForm() {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <TankCard className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>Sign In</CardTitle>
+        <CardTitle className="font-heading text-tank-aqua text-3xl">Sign In</CardTitle>
         <CardDescription>Enter your credentials to access your account</CardDescription>
       </CardHeader>
       <form onSubmit={handleSignIn}>
@@ -64,6 +66,7 @@ export function SignInForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className="bg-tank-dark/50 border-tank-aqua/30 focus:border-tank-aqua"
             />
           </div>
           <div className="space-y-2">
@@ -75,21 +78,26 @@ export function SignInForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              className="bg-tank-dark/50 border-tank-aqua/30 focus:border-tank-aqua"
             />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button 
+            type="submit" 
+            className="w-full hover:animate-ripple"
+            disabled={loading}
+          >
             {loading ? "Signing in..." : "Sign In"}
           </Button>
           <div className="text-center text-sm">
             Don't have an account?{" "}
-            <Button variant="link" className="p-0" onClick={() => navigate("/sign-up")}>
+            <Button variant="link" className="p-0 text-tank-aqua" onClick={() => navigate("/sign-up")}>
               Sign Up
             </Button>
           </div>
         </CardFooter>
       </form>
-    </Card>
+    </TankCard>
   );
 }

@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Shark Tank theme colors
+				tank: {
+					dark: '#061a26',    // deep navy studio walls
+					aqua: '#14b8a6',    // neon tint on water floor
+					glass: 'rgba(255,255,255,0.08)' // frosted cards
 				}
+			},
+			fontFamily: {
+				heading: ['"Bebas Neue"', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +94,18 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				// Ripple animation for the Shark Tank theme
+				ripple: { 
+					'0%': {transform:'scale(.8)', opacity:.9}, 
+					'100%': {transform:'scale(1.4)', opacity:0} 
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				// Ripple animation for the Shark Tank theme
+				ripple: 'ripple 3s infinite'
 			}
 		}
 	},

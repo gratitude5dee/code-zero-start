@@ -11,7 +11,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import SignInPage from "@/pages/SignInPage";
 import SignUpPage from "@/pages/SignUpPage";
 import DashboardPage from "@/pages/DashboardPage";
-import Index from "@/pages/Index";
+import OpeningSplash from "@/components/Stage/OpeningSplash";
 import NotFound from "@/pages/NotFound";
 
 // Create a client
@@ -23,7 +23,7 @@ function Root() {
   // If we're still loading auth state, return null or a loading indicator
   if (loading) return null;
   
-  return session ? <Navigate to="/dashboard" /> : <Navigate to="/sign-in" />;
+  return session ? <Navigate to="/dashboard" /> : <OpeningSplash />;
 }
 
 const App = () => (

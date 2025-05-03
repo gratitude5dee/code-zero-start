@@ -1,12 +1,14 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { TankCard } from "@/components/ui/TankCard";
 
 export function SignUpForm() {
   const [email, setEmail] = useState("");
@@ -61,9 +63,9 @@ export function SignUpForm() {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <TankCard className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>Sign Up</CardTitle>
+        <CardTitle className="font-heading text-tank-aqua text-3xl">Sign Up</CardTitle>
         <CardDescription>Create a new account</CardDescription>
       </CardHeader>
       <form onSubmit={handleSignUp}>
@@ -77,6 +79,7 @@ export function SignUpForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className="bg-tank-dark/50 border-tank-aqua/30 focus:border-tank-aqua"
             />
           </div>
           <div className="space-y-2">
@@ -89,21 +92,26 @@ export function SignUpForm() {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
+              className="bg-tank-dark/50 border-tank-aqua/30 focus:border-tank-aqua"
             />
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-4">
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button 
+            type="submit" 
+            className="w-full hover:animate-ripple"
+            disabled={loading}
+          >
             {loading ? "Signing up..." : "Sign Up"}
           </Button>
           <div className="text-center text-sm">
             Already have an account?{" "}
-            <Button variant="link" className="p-0" onClick={() => navigate("/sign-in")}>
+            <Button variant="link" className="p-0 text-tank-aqua" onClick={() => navigate("/sign-in")}>
               Sign In
             </Button>
           </div>
         </CardFooter>
       </form>
-    </Card>
+    </TankCard>
   );
 }
