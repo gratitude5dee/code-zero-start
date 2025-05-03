@@ -2,7 +2,7 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Layout } from "@/components/layout/Layout";
+import Layout from "@/components/layout/Layout";
 
 export default function DashboardPage() {
   const { user, signOut } = useAuth();
