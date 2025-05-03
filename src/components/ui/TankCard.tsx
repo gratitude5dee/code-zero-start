@@ -1,14 +1,14 @@
 
 import * as React from "react";
-import { Card, CardProps } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-export interface TankCardProps extends CardProps {}
+export interface TankCardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const TankCard = React.forwardRef<
-  React.ElementRef<typeof Card>,
+  HTMLDivElement,
   TankCardProps
->(({ className, ...props }, ref) => {
+>(({ className, children, ...props }, ref) => {
   return (
     <Card
       ref={ref}
@@ -17,7 +17,9 @@ const TankCard = React.forwardRef<
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </Card>
   );
 });
 TankCard.displayName = "TankCard";

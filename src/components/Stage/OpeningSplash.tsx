@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { motion } from 'framer-motion';
-import sharkAnimation from './shark-animation.json'; // We'll create this placeholder file
+import sharkAnimation from './shark-animation.json'; 
 
 export function OpeningSplash() {
   const navigate = useNavigate();
